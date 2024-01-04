@@ -18,3 +18,8 @@
 - Error Handling
 - HTTPS
 - Tree Shaking - remove unused code
+
+# React Hooks
+ (Normal JS Utility functions)
+ - useState() - Superpowerful state variables
+ - useEffect()

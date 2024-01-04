@@ -4,6 +4,10 @@ import Header from "./components/Header";
 import MainBody from "./components/MainBody";
 
 const App = () => {
+
+  // // Virtual DOM
+  // console.log(<MainBody />);
+  
   return (
     <div className="App">
       <Header />

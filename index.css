@@ -40,9 +40,30 @@
    height: 10rem; 
 }
 
-.filter {
-    padding-top: 1rem;
+.res-card-cuisines {
+    flex-wrap: wrap;
 }
 
+.filter {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    margin-left: 1rem;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.shimmer-card {
+    height: 25rem;
+    width: 35rem;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
 
 
