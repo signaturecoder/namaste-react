@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { SWIGGY_API } from "../utils/constants";
 
 const MainBody = () => {
   // Local State Variables
@@ -20,13 +21,11 @@ const MainBody = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
     const result = await data.json();
     const restaurantListData =
-      result?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      result?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setListOfRestaurant(restaurantListData);
     setFilteredListOfRestaurant(restaurantListData);
@@ -44,12 +43,7 @@ const MainBody = () => {
     setFilteredListOfRestaurant(filteredList);
   };
 
-  // Conditional Rendering
-  if (listOfRestaurant.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return listOfRestaurant.length === 0 ? <Shimmer /> : (
     <div className="main-body">
       <div className="filter">
         <div className="search-container">
