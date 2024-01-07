@@ -43,6 +43,7 @@ const MainBody = () => {
     setFilteredListOfRestaurant(filteredList);
   };
 
+  console.log("Items ", listOfRestaurant);
   return listOfRestaurant.length === 0 ? <Shimmer /> : (
     <div className="main-body">
       <div className="filter">
@@ -66,6 +67,7 @@ const MainBody = () => {
           <RestaurantCard
             key={restaurantItem.info.id}
             restData={restaurantItem}
+            
           />
         ))}
       </div>

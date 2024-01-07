@@ -1,12 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import { IMAGE_CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { restData } = props;
+  const navigate = useNavigate();
 
-  const { avgRating, cloudinaryImageId, costForTwo, cuisines, name, sla: {deliveryTime} } =
+  const { id, avgRating, cloudinaryImageId, costForTwo, cuisines, name, sla: {deliveryTime} } =
     restData?.info;
+
+    const navigateToRestaurantsDetails = (id) => {
+      navigate(`/restaurants/${id}`)
+      ;
+    }
+
+    console.log("ID ", id);
   return (
-    <div className="res-card">
+    <div className="res-card" onClick={() => navigateToRestaurantsDetails(id)}>
       <img
         className="res-card-image"
         src={IMAGE_CDN_URL + cloudinaryImageId}
