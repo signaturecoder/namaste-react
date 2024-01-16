@@ -1,25 +1,18 @@
 import { Component } from 'react'
-import User from './User';
 import UserClass from './UserClass';
 
 class About extends Component {
   constructor() {
     super();
-    console.log("Parent Constructor");
   }
 
   componentDidMount() {
-    console.log("Parent Componentdidmount");
   }
 
   render() {
-    console.log("Parent render ");
     return (
       <div>
         <h2>About US Page</h2>
-  
-        {/* <User name={"Sanu Kumar (function)"} location="Gaya"/> */}
-  
         <UserClass name={" Sanu Kumar ( Classes )"} location="kanpur"/>
         <UserClass name={" Sunny Kumar ( Classes )"} location="Bengaluru"/>
       </div>
