@@ -24,6 +24,8 @@
  - useState() - Superpowerful state variables
  - useEffect()
 
-# 2 Types of Routing in web apps
+# 2 Types of Routing in Web Apps
+
+React Router Dom Version 6 has been used in this project.
 - Client Side Routing 
 - Server Side Routing
