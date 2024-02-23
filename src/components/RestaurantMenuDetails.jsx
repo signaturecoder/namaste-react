@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
+import Shimmer from "./Shimmer";
+import  useRestaurantMenu  from "../utils/useRestaurantMenu";
 
 const RestaurantMenuDetails = () => {
-  const [restInfo, setRestInfo] = useState(null);
   const { resId } = useParams();
+  const restInfo = useRestaurantMenu(resId);
 
-  useEffect(() => {
-    fetchRestaurantMenu();
-  }, []);
+  if(restInfo === null) return <Shimmer />;
 
-  const fetchRestaurantMenu = async () => {
-    const restaurantMenu = await fetch(MENU_API + resId);
-    const restaurantMenuJSON = await restaurantMenu.json();
-    setRestInfo(restaurantMenuJSON.data);
-    // console.log("DAta ", restaurantMenuJSON.data);
-  };
+  const cards  = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
   return (
     <div className="restaurant-menu">
-      <h2>{restInfo?.cards[0]?.card?.card?.info?.name}</h2>
+      <h2>{restInfo?.cards[0]?.card?.card?.text}</h2>
       <h4>{restInfo?.cards[0]?.card?.card?.info?.cuisines}</h4>
       <ul>
-        {restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
+        {cards?.map(
           (item) => {
             if (item?.card?.card?.title) {
-             return <li>{item?.card?.card?.title}</li>;
+              const title = item?.card?.card?.title;
+             return <li key={title}>{title}</li>;
             }
           }
         )}

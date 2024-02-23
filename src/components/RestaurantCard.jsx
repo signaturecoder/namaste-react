@@ -13,7 +13,6 @@ const RestaurantCard = (props) => {
       ;
     }
 
-    console.log("ID ", id);
   return (
     <div className="res-card" onClick={() => navigateToRestaurantsDetails(id)}>
       <img
