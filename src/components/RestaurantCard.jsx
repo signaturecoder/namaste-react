@@ -5,26 +5,40 @@ const RestaurantCard = (props) => {
   const { restData } = props;
   const navigate = useNavigate();
 
-  const { id, avgRating, cloudinaryImageId, costForTwo, cuisines, name, sla: {deliveryTime} } =
-    restData?.info;
+  const {
+    id,
+    avgRating,
+    cloudinaryImageId,
+    costForTwo,
+    cuisines,
+    name,
+    sla: { deliveryTime },
+  } = restData?.info;
 
-    const navigateToRestaurantsDetails = (id) => {
-      navigate(`/restaurants/${id}`)
-      ;
-    }
+  const navigateToRestaurantsDetails = (id) => {
+    navigate(`/restaurants/${id}`);
+  };
 
   return (
-    <div className="res-card" onClick={() => navigateToRestaurantsDetails(id)}>
+    <div
+      className="w-[300px] m-2 rounded-lg"
+      onClick={() => navigateToRestaurantsDetails(id)}
+    >
       <img
-        className="res-card-image"
+        className="rounded-lg"
         src={IMAGE_CDN_URL + cloudinaryImageId}
         alt="Card Image"
       />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
-      <h4 className="res-card-cuisines">{avgRating} stars</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{deliveryTime} minutes</h4>
+      <div className="p-2">
+        <h3 className="font-bold text-xl">{name}</h3>
+        <h4 className="flex flex-wrap text-gray-400 text-ellipsis w-[250px]">{cuisines.join(",")}</h4>
+        <div className="flex">
+          {" "}
+          <h4 className="res-card-cuisines px-1">{avgRating} stars</h4><span className="items-center">.</span>
+          <h4  className="px-1">{deliveryTime} minutes</h4>
+          <h4 className="px-1">{costForTwo}</h4>
+        </div>
+      </div>
     </div>
   );
 };
