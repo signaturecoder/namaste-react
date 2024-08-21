@@ -2,14 +2,17 @@ import { Component } from 'react'
 import UserClass from './UserClass';
 
 class About extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(`${this.props.name} Parent Constructor`);
   }
 
   componentDidMount() {
+    console.log(`${this.props.name} Component Did Mount`);
   }
 
   render() {
+    console.log(`${this.props.name} Parent Render`);
     return (
       <div>
         <h2>About US Page</h2>
@@ -55,4 +58,16 @@ export default About;
  * - Elon Musk Component Did mount
  * 
  * Parent Component Did mount
+ * 
+ * 
+ * 
+About.jsx:7  About( Classes ) Parent Constructor
+About.jsx:15  About( Classes ) Parent Render
+UserClass.js:15  Sanu Kumar ( Classes ) Child Constructor
+UserClass.js:23  Sanu Kumar ( Classes ) Child Render
+UserClass.js:15  Sunny Kumar ( Classes ) Child Constructor
+UserClass.js:23  Sunny Kumar ( Classes ) Child Render
+UserClass.js:19  Sanu Kumar ( Classes ) Component Did Mount
+UserClass.js:19  Sunny Kumar ( Classes ) Component Did Mount
+About.jsx:11  About( Classes ) Component Did Mount
  */
