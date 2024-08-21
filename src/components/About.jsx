@@ -16,8 +16,7 @@ class About extends Component {
     return (
       <div>
         <h2>About US Page</h2>
-        <UserClass name={" Sanu Kumar ( Classes )"} location="kanpur"/>
-        <UserClass name={" Sunny Kumar ( Classes )"} location="Bengaluru"/>
+        <UserClass name={" Sanu Kumar Props( Classes )"} location="kanpur"/>
       </div>
     )
   }
@@ -48,14 +47,15 @@ export default About;
  * Parent Constructor
  * Parent Render
  * 
- * - Akshay Child Constructor
- * - Akshay Child Render
+ * - First Child Constructor
+ * - First Child Render
  * 
- * - Elon Musk Child Constructor
- * - Elon Musk Child Render
+ * - Second Child Constructor
+ * - Second Child Render
  * 
- * - Akshay Component Did Mount 
- * - Elon Musk Component Did mount
+ * < DOM UPDATED - In A Single Batch >
+ * - First Component Did Mount 
+ * - Second Component Did mount
  * 
  * Parent Component Did mount
  * 
